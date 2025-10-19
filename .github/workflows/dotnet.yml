@@ -31,7 +31,7 @@ jobs:
     - name: Test
       run: ls
     - name: Deploy to EdgeOne Pages
-      run: npx edgeone pages deploy release/wwwroot -n edgeonepagesblazordemo -t ${{ secrets.EDGEONE_API_TOKEN }} [-e <env>]
+      run: npx edgeone pages deploy ./release/wwwroot -n edgeonepagesblazordemo -t ${{ secrets.EDGEONE_API_TOKEN }} [-e <env>]
       env:
         EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
 
