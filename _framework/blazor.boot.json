@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "EdgeOnePagesBlazorDemo",
   "resources": {
-    "hash": "sha256-vG9hlvNT/UfNkLd/Baxtql/vKMTWlvLZTEY0uAjjYi0=",
+    "hash": "sha256-kOOiITDPGHyzvxRlEQPqKrcEIqJ52BghZod+/CgNigw=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-9Fzd5We95Rp03dEKIAbYjPDR3eWyLbmjMlYStvxyiok="
     },
@@ -49,7 +49,7 @@
       "System.Text.Json.wasm": "sha256-uRyU5bF50OLCg7N6u2r2JBGbsH+DH9sNF9wbvWmtipY=",
       "System.Text.RegularExpressions.wasm": "sha256-tCTxwg2N3nkoTMDAtfc+X4iVUDF7K9iBuzpAhgC284E=",
       "System.Private.CoreLib.wasm": "sha256-8dUl2xRT6zMeFA3vls6tLi7FtGmt/SS+1+06MbRHJ3Y=",
-      "EdgeOnePagesBlazorDemo.wasm": "sha256-yN8qLh15KmVCRH/+mQvnHxikyh8/Dv7jMuTzNXp2p3k="
+      "EdgeOnePagesBlazorDemo.wasm": "sha256-EO3Ox6uhGyjRkk8yQ1oh6hDLW6AS6f9bins534ItT0Q="
     }
   },
   "cacheBootResources": true,
