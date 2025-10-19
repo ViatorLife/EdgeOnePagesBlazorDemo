@@ -22,16 +22,14 @@ jobs:
         dotnet-version: 8.0.x
     - name: Publish DotNet Blazor Project
       run: dotnet publish ./EdgeOnePagesBlazorDemo/EdgeOnePagesBlazorDemo.csproj -c Release -o release --nologo
-    - name: Commit wwwroot to Github Pages
-      uses: JamesIves/github-pages-deploy-action@3.7.1
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: release/wwwroot
+    - name: Test
+      run: ls
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '22.11.0'
+    - name: Test
+      run: ls
     - name: Deploy to EdgeOne Pages
       run: npx edgeone pages deploy release/wwwroot -n edgeonepagesblazordemo -t ${{ secrets.EDGEONE_API_TOKEN }} [-e <env>]
       env:
