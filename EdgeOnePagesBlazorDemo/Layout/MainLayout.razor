@@ -1,16 +1,50 @@
-﻿@inherits LayoutComponentBase
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+@inherits LayoutComponentBase
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+<MudThemeProvider>
+    <MudDialogProvider />
+    <MudSnackbarProvider MaxDisplayedSnackbars="4">
+        <MudLayout>
+            <MudDrawer @bind-Open="_drawerOpen"
+                       Variant="DrawerVariant.Responsive"
+                       Elevation="1"
+                       Color="Color.Surface">
+                <MudDrawerHeader Class="pa-4">
+                    <MudText Typo="Typo.h6">EdgeOne Pages</MudText>
+                    <MudText Typo="Typo.subtitle2" Color="Color.Secondary">Blazor + MudBlazor</MudText>
+                </MudDrawerHeader>
+                <NavMenu />
+            </MudDrawer>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+            <MudMainContent>
+                <MudAppBar Color="Color.Primary" Elevation="4">
+                    <MudHidden HiddenBreakpoint="Breakpoint.SmAndUp">
+                        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                                       Color="Color.Inherit"
+                                       Edge="Edge.Start"
+                                       OnClick="ToggleDrawer" />
+                    </MudHidden>
+                    <MudText Typo="Typo.h6" Class="ml-2">EdgeOnePagesBlazorDemo</MudText>
+                    <MudSpacer />
+                    <MudButton Variant="Variant.Text"
+                               Color="Color.Inherit"
+                               Href="https://learn.microsoft.com/aspnet/core/"
+                               Target="_blank">
+                        文档
+                    </MudButton>
+                </MudAppBar>
+
+                <section class="main-content pa-6">
+                    <MudPaper Class="pa-6" Elevation="0">
+                        @Body
+                    </MudPaper>
+                </section>
+            </MudMainContent>
+        </MudLayout>
+    </MudSnackbarProvider>
+</MudThemeProvider>
+
+@code {
+    private bool _drawerOpen = true;
+
+    private void ToggleDrawer() => _drawerOpen = !_drawerOpen;
+}
