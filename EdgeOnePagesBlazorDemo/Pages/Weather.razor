@@ -1,39 +1,44 @@
-﻿@page "/weather"
+@page "/weather"
 @inject HttpClient Http
 
 <PageTitle>Weather</PageTitle>
 
-<h1>Weather</h1>
-
-<p>This component demonstrates fetching data from the server.</p>
+<MudStack Spacing="2" Class="mb-4">
+    <MudText Typo="Typo.h4">天气预报</MudText>
+    <MudText Typo="Typo.subtitle1">
+        通过 MudTable 展示从 <code>sample-data/weather.json</code> 加载的示例数据。
+    </MudText>
+</MudStack>
 
 @if (forecasts == null)
 {
-    <p><em>Loading...</em></p>
+    <MudPaper Class="pa-6" Style="display:flex;justify-content:center;">
+        <MudProgressCircular Size="Size.Large" Color="Color.Primary" />
+    </MudPaper>
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <MudCard>
+        <MudCardHeader>
+            <MudText Typo="Typo.h6">未来 5 天</MudText>
+        </MudCardHeader>
+        <MudTable Items="forecasts" Hover="true" Dense="true" Breakpoint="Breakpoint.Sm">
+            <HeaderContent>
+                <MudTh>日期</MudTh>
+                <MudTh>温度 (°C)</MudTh>
+                <MudTh>温度 (°F)</MudTh>
+                <MudTh>概述</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="日期">@context.Date.ToShortDateString()</MudTd>
+                <MudTd DataLabel="温度 (°C)">@context.TemperatureC</MudTd>
+                <MudTd DataLabel="温度 (°F)">@context.TemperatureF</MudTd>
+                <MudTd DataLabel="概述">
+                    <MudChip Color="Color.Secondary" Variant="Variant.Text">@context.Summary</MudChip>
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+    </MudCard>
 }
 
 @code {

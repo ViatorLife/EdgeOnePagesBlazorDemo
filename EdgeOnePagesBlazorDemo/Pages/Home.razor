@@ -1,7 +1,50 @@
-﻿@page "/"
+@page "/"
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<MudStack Spacing="2" Class="mb-6">
+    <MudText Typo="Typo.h3" GutterBottom="true">欢迎来到 MudBlazor 演示</MudText>
+    <MudText Typo="Typo.subtitle1">
+        使用现代化的 Material Design 组件，快速构建响应式 Blazor WebAssembly 应用。
+    </MudText>
+</MudStack>
 
-Welcome to your new app.
+<MudGrid>
+    <MudItem xs="12" md="6">
+        <MudCard>
+            <MudCardHeader>
+                <MudText Typo="Typo.h5">快速上手</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>
+                    浏览侧边栏中的示例页面，体验 MudBlazor 提供的丰富组件和主题能力。
+                </MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="counter">
+                    立即体验
+                </MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" md="6">
+        <MudCard>
+            <MudCardHeader>
+                <MudText Typo="Typo.h5">文档</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>
+                    想了解更多？访问 MudBlazor 官方文档，探索表格、图表、对话框等高级特性。
+                </MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Outlined"
+                           Color="Color.Secondary"
+                           Href="https://mudblazor.com/"
+                           Target="_blank">
+                    打开文档
+                </MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+</MudGrid>
